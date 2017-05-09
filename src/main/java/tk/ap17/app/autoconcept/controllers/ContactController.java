@@ -22,62 +22,62 @@ public class ContactController extends Controller {
 	}
 
 	@FXML
-	private ImageView retour;
-	
+	private ImageView retourImageView;
+
 	@FXML
-	private ChoiceBox<String> choixCategorie;
-	
+	private ChoiceBox<String> categorieChoiceBox;
+
 	@FXML
-	private Label entreprise;
-	
+	private Label entrepriseLabel;
+
 	@FXML
-	private ChoiceBox<?> choixEntreprise;
-	
+	private ChoiceBox<?> entrepriseChoiceBox;
+
 	@FXML
-	private TextField whereNom;
-	
+	private TextField whereNomTextField;
+
 	@FXML
-	private TextField wherePrenom;
-	
+	private TextField wherePrenomTextField;
+
 	@FXML
-	private TextField whereDdn;
-	
+	private TextField whereDdnTextField;
+
 	@FXML
-	private Label fsCat;
-	
+	private Label fsCatLabel;
+
 	@FXML
-	private Label fsAdresse;
-	
+	private Label fsAdresseLabel;
+
 	@FXML
-	private Label fsNom;
-	
+	private Label fsNomLabel;
+
 	@FXML
-	private Label fsPrenom;
-	
+	private Label fsPrenomLabel;
+
 	@FXML
-	private Label fsDdn;
-	
+	private Label fsDdnLabel;
+
 	@FXML
-	private Label fsSexe;
-	
+	private Label fsSexeLabel;
+
 	@FXML
-	private Label fsCourriel;
-	
+	private Label fsCourrielLabel;
+
 	@FXML
-	private Label fsTelephone;
-	
+	private Label fsTelephoneLabel;
+
 	@FXML
-	private Label fsInscription;
-	
+	private Label fsInscriptionLabel;
+
 	@FXML
-	private Button nouveau;
-	
+	private Button nouveauButton;
+
 	@FXML
-	private Button editer;
-	
+	private Button editerButton;
+
 	@FXML
-	private Button supprimer;
-	
+	private Button supprimerButton;
+
 
 	public void retourAccueil(MouseEvent event) {
 		try {
@@ -86,25 +86,22 @@ public class ContactController extends Controller {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void choixCategorie(){
-		 choixCategorie.getItems().addAll("Tous", "Particuliers", "Professionnels", "Salariés" );
-		 choixCategorie.setValue("tous");
-		 
-		 String choix = getChoice(choixCategorie);
+		categorieChoiceBox.getItems().addAll("Tous", "Particuliers", "Professionnels", "Salariés" );
+		categorieChoiceBox.setValue("Tous");
+
+		 String choix = getChoice(categorieChoiceBox);
 		 boolean nonParticulier = choix.equalsIgnoreCase("Salariés");
-		 
+
 		 if(nonParticulier){
-			 entreprise.setVisible(true);
-			 choixEntreprise.setVisible(true);
+			 entrepriseLabel.setVisible(true);
+			 entrepriseChoiceBox.setVisible(true);
 		 }
 	}
-	
-	public String getChoice(ChoiceBox<String> choixCategorie) {
-		String choix = choixCategorie.getValue();
+
+	public String getChoice(ChoiceBox<String> categorieChoiceBox) {
+		String choix = categorieChoiceBox.getValue();
 		return choix;
 	}
 }
-
-
-
