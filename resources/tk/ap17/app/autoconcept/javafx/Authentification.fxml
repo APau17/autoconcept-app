@@ -6,6 +6,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -14,6 +16,11 @@
 
 <VBox alignment="CENTER" minHeight="-350.0" minWidth="-500.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="350.0" prefWidth="500.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tk.ap17.app.autoconcept.controllers.AuthController">
    <children>
+      <ImageView fitHeight="62.0" fitWidth="199.0">
+         <image>
+            <Image url="@../../../../../../../../Desktop/logo.png" />
+         </image>
+      </ImageView>
       <Label alignment="CENTER" text="Authentification" textAlignment="CENTER">
          <font>
             <Font size="22.0" />
