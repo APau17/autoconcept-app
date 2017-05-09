@@ -53,7 +53,7 @@ public class Connector {
         return uri;
     }
 
-    public void setUri(String newUri) {
+    public  void setUri(String newUri) {
         uri = newUri;
     }
 
