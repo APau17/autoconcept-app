@@ -168,28 +168,24 @@ public class ContactController extends Controller {
         	fsVilleLabel.setText(contact.getVille());
         	fsNomLabel.setText(contact.getNom());
         	fsPrenomLabel.setText(contact.getPrenom());
+        	
+//        	String ddn = contact.getDateDeNaissance();
+//        	
+//        	fsDdnLabel.setText();
+        	
         	fsDdnLabel.setText(contact.getDateDeNaissance());
         	
-        	int sexe = contact.getSexe();        	
-        	if(sexe == 0){
-        		fsSexeLabel.setText("Homme");
-        	}else{
+        	boolean sexe = contact.getSexe();        	
+        	if(sexe){
         		fsSexeLabel.setText("Femme");
+        	}else{
+        		fsSexeLabel.setText("Homme");
         	}
         	
         	fsCourrielLabel.setText(contact.getCourriel());
         	fsTelephoneLabel.setText(contact.getTelephone());
         	fsInscriptionLabel.setText(contact.getAnciennete());
         }
-
-//        } else {
-//            // contact is null, remove all the text.
-//        	fsNomLabel.setText("");
-//        	fsPrenomLabel.setText("");
-//            fsAdresseLabel.setText("");
-//            fsCodePostalLabel.setText("");
-//            fsVilleLabel.setText("");
-//        }
     }
     
     /**

@@ -1,8 +1,10 @@
 package tk.ap17.app.autoconcept.models;
 
+import java.sql.Date;
 import java.time.LocalDate;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -18,7 +20,7 @@ public class Contacts extends Table<Contacts> {
 	private StringProperty nom;
 	private StringProperty prenom;
 	private StringProperty dateDeNaissance;
-	private IntegerProperty sexe;
+	private SimpleBooleanProperty sexe;
 	private StringProperty courriel;
 	private StringProperty telephone;
 	private SimpleStringProperty anciennete;
@@ -27,29 +29,12 @@ public class Contacts extends Table<Contacts> {
 		super(connector);
 		this.setNameTable("Contact");
 		this.addColumn("nom");
-	}
-
-	/**
-	 * Constructor with some initial data.
-	 * 
-	 * @param nom
-	 * @param prenom
-	 * @param dateDeNaissance
-	 */
-	public Contacts(Connector connector, String nom, String prenom, String dateDeNaissance) {
-		super(connector);
+		this.addColumn("prenom");
+		this.addColumn("dateNaiss");
+		this.addColumn("sexe");
+		this.addColumn("courriel");
+		this.addColumn("telephone");
 		
-		this.professionnel = new SimpleStringProperty("Professionnel");
-		this.adresse = new SimpleStringProperty("7 rue du bois");
-		this.ville = new SimpleStringProperty("Pau");
-		this.codePostal = new SimpleIntegerProperty(64000);
-		this.nom = new SimpleStringProperty(nom);
-		this.prenom = new SimpleStringProperty(prenom);
-		this.dateDeNaissance = new SimpleStringProperty(dateDeNaissance);
-		this.sexe = new SimpleIntegerProperty(0);
-		this.courriel = new SimpleStringProperty ("nom.prenom@exemple.com");
-		this.telephone = new SimpleStringProperty("0102030405");
-		this.anciennete = new SimpleStringProperty("12/04/1997");
 	}
 
 	public String getProfessionnel() {
@@ -136,15 +121,15 @@ public class Contacts extends Table<Contacts> {
 		return dateDeNaissance;
 	}
 
-	public int getSexe() {
+	public boolean getSexe() {
 		return sexe.get();
 	}
 
-	public void setSexe(int sexe) {
+	public void setSexe(boolean sexe) {
 		this.sexe.set(sexe);
 	}
 
-	public IntegerProperty sexeProperty() {
+	public SimpleBooleanProperty sexeProperty() {
 		return sexe;
 	}
 
@@ -184,8 +169,30 @@ public class Contacts extends Table<Contacts> {
 		return anciennete;
 	}
 
-    public Contacts create() {	
-    	String nom = (String) getTable().getField("nom");
-        return new Contacts(getConnector(), nom, nom, nom);
+    public Contacts create() {
+        return new Contacts(getConnector());
+    }
+
+    public Contacts initialize() {
+        String name = (String) getField("nom");
+        String prenom = (String) getField("prenom");
+        String dateNaiss = (String) getField("dateNaiss");
+        Boolean sexe = (Boolean) getField("sexe");
+        String courriel = (String) getField("courriel");
+        String telephone = (String) getField("telephone");
+        
+        this.professionnel = new SimpleStringProperty("Professionnel");
+        this.adresse = new SimpleStringProperty("7 rue du bois");
+        this.ville = new SimpleStringProperty("Pau");
+        this.codePostal = new SimpleIntegerProperty(64000);
+		this.nom = new SimpleStringProperty(name);
+		this.prenom = new SimpleStringProperty(prenom);
+		this.dateDeNaissance = new SimpleStringProperty (dateNaiss);
+		this.sexe = new SimpleBooleanProperty(sexe);
+        this.courriel = new SimpleStringProperty (courriel);
+        this.telephone = new SimpleStringProperty(telephone);
+        this.anciennete = new SimpleStringProperty("12/04/1997");   
+        
+        return this;
     }
 }
