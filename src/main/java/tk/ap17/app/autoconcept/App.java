@@ -109,14 +109,6 @@ public class App extends Application {
             controller.setApp(this);
             controller.username();
             controller.initialize();
-
-            // "06/10/1989"));
-            // contact.add(new Contacts(connector, "devaux", "mathias",
-            // "19/09/1977"));
-            // contact.add(new Contacts(connector, "vistot", "michael",
-            // "15/12/1987"));
-
-            // primaryStage.close();
         } catch (Exception e) {
             exceptionDialog(e, "An exception was throw.");
         }
