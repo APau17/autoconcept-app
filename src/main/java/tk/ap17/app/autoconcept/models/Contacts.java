@@ -183,4 +183,9 @@ public class Contacts extends Table<Contacts> {
 	public StringProperty ancienneteProperty() {
 		return anciennete;
 	}
+
+    public Contacts create() {	
+    	String nom = (String) getTable().getField("nom");
+        return new Contacts(getConnector(), nom, nom, nom);
+    }
 }
